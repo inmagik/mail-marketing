@@ -1,0 +1,932 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width"/>
+    <style type="text/css">
+
+      /**********************************************
+      * Ink v1.0.5 - Copyright 2013 ZURB Inc        *
+      **********************************************/
+
+      /* Client-specific Styles and Reset */
+
+      #outlook a {
+        padding:0;
+      }
+
+      body{
+        width:100% !important;
+        min-width: 100%;
+        -webkit-text-size-adjust:100%;
+        -ms-text-size-adjust:100%;
+        margin:0;
+        padding:0;
+      }
+
+        /* .ExternalClass applies to Outlook.com (the artist formerly known as Hotmail)  */
+
+      .ExternalClass {
+        width:100%;
+      }
+
+      .ExternalClass,
+      .ExternalClass p,
+      .ExternalClass span,
+      .ExternalClass font,
+      .ExternalClass td,
+      .ExternalClass div {
+        line-height: 100%;
+      }
+
+      #backgroundTable {
+        margin:0;
+        padding:0;
+        width:100% !important;
+        line-height: 100% !important;
+      }
+
+      img {
+        outline:none;
+        text-decoration:none;
+        -ms-interpolation-mode: bicubic;
+        width: auto;
+        max-width: 100%;
+        float: left;
+        clear: both;
+        display: block;
+      }
+
+      center {
+        width: 100%;
+        min-width: 580px;
+      }
+
+      a img {
+        border: none;
+      }
+
+      p {
+        margin: 0 0 0 10px;
+      }
+
+      table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+
+      td {
+        word-break: break-word;
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        hyphens: none;
+        border-collapse: collapse !important;
+      }
+
+      table, tr, td {
+        padding: 0;
+        vertical-align: top;
+        text-align: left;
+      }
+
+      hr {
+        color: #d9d9d9;
+        background-color: #d9d9d9;
+        height: 1px;
+        border: none;
+      }
+
+      /* Responsive Grid */
+
+      table.body {
+        height: 100%;
+        width: 100%;
+      }
+
+      table.container {
+        width: 580px;
+        margin: 0 auto;
+        text-align: inherit;
+      }
+
+      table.row {
+        padding: 0px;
+        width: 100%;
+        position: relative;
+      }
+
+      table.container table.row {
+        display: block;
+      }
+
+      td.wrapper {
+        padding: 10px 20px 0px 0px;
+        position: relative;
+      }
+
+      table.columns,
+      table.column {
+        margin: 0 auto;
+      }
+
+      table.columns td,
+      table.column td {
+        padding: 0px 0px 10px;
+      }
+
+      table.columns td.sub-columns,
+      table.column td.sub-columns,
+      table.columns td.sub-column,
+      table.column td.sub-column {
+        padding-right: 10px;
+      }
+
+      td.sub-column, td.sub-columns {
+        min-width: 0px;
+      }
+
+      table.row td.last,
+      table.container td.last {
+        padding-right: 0px;
+      }
+
+      table.one { width: 30px; }
+      table.two { width: 80px; }
+      table.three { width: 130px; }
+      table.four { width: 180px; }
+      table.five { width: 230px; }
+      table.six { width: 280px; }
+      table.seven { width: 330px; }
+      table.eight { width: 380px; }
+      table.nine { width: 430px; }
+      table.ten { width: 480px; }
+      table.eleven { width: 530px; }
+      table.twelve { width: 580px; }
+
+      table.one center { min-width: 30px; }
+      table.two center { min-width: 80px; }
+      table.three center { min-width: 130px; }
+      table.four center { min-width: 180px; }
+      table.five center { min-width: 230px; }
+      table.six center { min-width: 280px; }
+      table.seven center { min-width: 330px; }
+      table.eight center { min-width: 380px; }
+      table.nine center { min-width: 430px; }
+      table.ten center { min-width: 480px; }
+      table.eleven center { min-width: 530px; }
+      table.twelve center { min-width: 580px; }
+
+      table.one .panel center { min-width: 10px; }
+      table.two .panel center { min-width: 60px; }
+      table.three .panel center { min-width: 110px; }
+      table.four .panel center { min-width: 160px; }
+      table.five .panel center { min-width: 210px; }
+      table.six .panel center { min-width: 260px; }
+      table.seven .panel center { min-width: 310px; }
+      table.eight .panel center { min-width: 360px; }
+      table.nine .panel center { min-width: 410px; }
+      table.ten .panel center { min-width: 460px; }
+      table.eleven .panel center { min-width: 510px; }
+      table.twelve .panel center { min-width: 560px; }
+
+      .body .columns td.one,
+      .body .column td.one { width: 8.333333%; }
+      .body .columns td.two,
+      .body .column td.two { width: 16.666666%; }
+      .body .columns td.three,
+      .body .column td.three { width: 25%; }
+      .body .columns td.four,
+      .body .column td.four { width: 33.333333%; }
+      .body .columns td.five,
+      .body .column td.five { width: 41.666666%; }
+      .body .columns td.six,
+      .body .column td.six { width: 50%; }
+      .body .columns td.seven,
+      .body .column td.seven { width: 58.333333%; }
+      .body .columns td.eight,
+      .body .column td.eight { width: 66.666666%; }
+      .body .columns td.nine,
+      .body .column td.nine { width: 75%; }
+      .body .columns td.ten,
+      .body .column td.ten { width: 83.333333%; }
+      .body .columns td.eleven,
+      .body .column td.eleven { width: 91.666666%; }
+      .body .columns td.twelve,
+      .body .column td.twelve { width: 100%; }
+
+      td.offset-by-one { padding-left: 50px; }
+      td.offset-by-two { padding-left: 100px; }
+      td.offset-by-three { padding-left: 150px; }
+      td.offset-by-four { padding-left: 200px; }
+      td.offset-by-five { padding-left: 250px; }
+      td.offset-by-six { padding-left: 300px; }
+      td.offset-by-seven { padding-left: 350px; }
+      td.offset-by-eight { padding-left: 400px; }
+      td.offset-by-nine { padding-left: 450px; }
+      td.offset-by-ten { padding-left: 500px; }
+      td.offset-by-eleven { padding-left: 550px; }
+
+      td.expander {
+        visibility: hidden;
+        width: 0px;
+        padding: 0 !important;
+      }
+
+      table.columns .text-pad,
+      table.column .text-pad {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      table.columns .left-text-pad,
+      table.columns .text-pad-left,
+      table.column .left-text-pad,
+      table.column .text-pad-left {
+        padding-left: 10px;
+      }
+
+      table.columns .right-text-pad,
+      table.columns .text-pad-right,
+      table.column .right-text-pad,
+      table.column .text-pad-right {
+        padding-right: 10px;
+      }
+
+      /* Block Grid */
+
+      .block-grid {
+        width: 100%;
+        max-width: 580px;
+      }
+
+      .block-grid td {
+        display: inline-block;
+        padding:10px;
+      }
+
+      .two-up td {
+        width:270px;
+      }
+
+      .three-up td {
+        width:173px;
+      }
+
+      .four-up td {
+        width:125px;
+      }
+
+      .five-up td {
+        width:96px;
+      }
+
+      .six-up td {
+        width:76px;
+      }
+
+      .seven-up td {
+        width:62px;
+      }
+
+      .eight-up td {
+        width:52px;
+      }
+
+      /* Alignment and Visibility Classes */
+
+      table.center, td.center {
+        text-align: center;
+      }
+
+      h1.center,
+      h2.center,
+      h3.center,
+      h4.center,
+      h5.center,
+      h6.center,
+      p.center {
+        text-align: center;
+      }
+
+      span.center {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+
+      img.center {
+        margin: 0 auto;
+        float: none;
+      }
+
+      .show-for-small,
+      .hide-for-desktop {
+        display: none;
+        width:0;
+        mso-hide:all;
+        overflow:hidden;
+      }
+
+      .show-for-small *,
+      .hide-for-desktop * {
+        mso-hide:all;
+      }
+
+      /* Typography */
+
+      body, table.body, h1, h2, h3, h4, h5, h6, p, td {
+        color: #222222;
+        font-family: Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        padding:0;
+        margin: 0;
+        text-align: left;
+        line-height: 1.3;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        word-break: normal;
+      }
+
+      h1 {font-size: 40px;}
+      h2 {font-size: 36px;}
+      h3 {font-size: 32px;}
+      h4 {font-size: 28px;}
+      h5 {font-size: 24px;}
+      h6 {font-size: 20px;}
+      body, table.body, p, td {font-size: 14px;line-height:19px;}
+
+      p.lead, p.lede, p.leed {
+        font-size: 18px;
+        line-height:21px;
+      }
+
+      p {
+        margin-bottom: 10px;
+      }
+
+      small {
+        font-size: 10px;
+      }
+
+      a {
+        color: #2ba6cb;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #2795b6 !important;
+      }
+
+      a:active {
+        color: #2795b6 !important;
+      }
+
+      a:visited {
+        color: #2ba6cb !important;
+      }
+
+      h1 a,
+      h2 a,
+      h3 a,
+      h4 a,
+      h5 a,
+      h6 a {
+        color: #2ba6cb;
+      }
+
+      h1 a:active,
+      h2 a:active,
+      h3 a:active,
+      h4 a:active,
+      h5 a:active,
+      h6 a:active {
+        color: #2ba6cb !important;
+      }
+
+      h1 a:visited,
+      h2 a:visited,
+      h3 a:visited,
+      h4 a:visited,
+      h5 a:visited,
+      h6 a:visited {
+        color: #2ba6cb !important;
+      }
+
+      /* Panels */
+
+      .panel {
+        background: #f2f2f2;
+        border: 1px solid #d9d9d9;
+        padding: 10px !important;
+      }
+
+      .sub-grid table {
+        width: 100%;
+      }
+
+      .sub-grid td.sub-columns {
+        padding-bottom: 0;
+      }
+
+      /* Buttons */
+
+      table.button,
+      table.tiny-button,
+      table.small-button,
+      table.medium-button,
+      table.large-button {
+        width: 100%;
+        overflow: hidden;
+      }
+
+      table.button td,
+      table.tiny-button td,
+      table.small-button td,
+      table.medium-button td,
+      table.large-button td {
+        box-sizing:border-box;
+        -moz-box-sizing:border-box;
+        -webkit-box-sizing:border-box;
+        display: block;
+        width: auto !important;
+        text-align: center;
+        background: #2ba6cb;
+        border: 1px solid #2284a1;
+        color: #ffffff;
+        padding: 8px 0;
+        line-height: initial !important;
+      }
+
+      table.tiny-button td {
+        padding: 5px 0;
+      }
+
+      table.small-button td {
+        padding: 8px 0;
+      }
+
+      table.medium-button td {
+        padding: 12px 0;
+      }
+
+      table.large-button td {
+        padding: 21px 0;
+      }
+
+      table.button td a,
+      table.tiny-button td a,
+      table.small-button td a,
+      table.medium-button td a,
+      table.large-button td a {
+        font-weight: bold;
+        text-decoration: none;
+        font-family: Helvetica, Arial, sans-serif;
+        color: #ffffff;
+        font-size: 16px;
+        display: block;
+        height: 100%;
+        width: 100%;
+      }
+
+      table.tiny-button td a {
+        font-size: 12px;
+        font-weight: normal;
+      }
+
+      table.small-button td a {
+        font-size: 16px;
+      }
+
+      table.medium-button td a {
+        font-size: 20px;
+      }
+
+      table.large-button td a {
+        font-size: 24px;
+      }
+
+      table.button:hover td,
+      table.button:visited td,
+      table.button:active td {
+        background: #2795b6 !important;
+      }
+
+      table.button:hover td a,
+      table.button:visited td a,
+      table.button:active td a {
+        color: #ffffff !important;
+      }
+
+      table.button:hover td,
+      table.tiny-button:hover td,
+      table.small-button:hover td,
+      table.medium-button:hover td,
+      table.large-button:hover td {
+        background: #2795b6 !important;
+      }
+
+      table.button:hover td a,
+      table.button:active td a,
+      table.button td a:visited,
+      table.tiny-button:hover td a,
+      table.tiny-button:active td a,
+      table.tiny-button td a:visited,
+      table.small-button:hover td a,
+      table.small-button:active td a,
+      table.small-button td a:visited,
+      table.medium-button:hover td a,
+      table.medium-button:active td a,
+      table.medium-button td a:visited,
+      table.large-button:hover td a,
+      table.large-button:active td a,
+      table.large-button td a:visited {
+        color: #ffffff !important;
+      }
+
+      table.secondary td {
+        background: #e9e9e9;
+        border-color: #d0d0d0;
+        color: #555555;
+      }
+
+      table.secondary td a {
+        color: #555555;
+      }
+
+      table.secondary:hover td {
+        background: #d0d0d0 !important;
+        color: #555555;
+      }
+
+      table.secondary:hover td a,
+      table.secondary td a:visited,
+      table.secondary:active td a {
+        color: #555555 !important;
+      }
+
+      table.success td {
+        background: #5da423;
+        border-color: #457a1a;
+      }
+
+      table.success:hover td {
+        background: #457a1a !important;
+      }
+
+      table.alert td {
+        background: #c60f13;
+        border-color: #970b0e;
+      }
+
+      table.alert:hover td {
+        background: #970b0e !important;
+      }
+
+      table.radius td {
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+      }
+
+      table.round td {
+        -webkit-border-radius: 500px;
+        -moz-border-radius: 500px;
+        border-radius: 500px;
+      }
+
+      /* Outlook First */
+
+      body.outlook p {
+        display: inline !important;
+      }
+
+      /*  Media Queries */
+
+      @media only screen and (max-width: 600px) {
+
+        table[class="body"] img {
+          max-width: auto !important;
+          max-height: auto !important;
+        }
+
+        table[class="body"] center {
+          min-width: 0 !important;
+        }
+
+        table[class="body"] .container {
+          width: 95% !important;
+        }
+
+        table[class="body"] .row {
+          width: 100% !important;
+          display: block !important;
+        }
+
+        table[class="body"] .wrapper {
+          display: block !important;
+          padding-right: 0 !important;
+        }
+
+        table[class="body"] .columns,
+        table[class="body"] .column {
+          table-layout: fixed !important;
+          float: none !important;
+          width: 100% !important;
+          padding-right: 0px !important;
+          padding-left: 0px !important;
+          display: block !important;
+        }
+
+        table[class="body"] .wrapper.first .columns,
+        table[class="body"] .wrapper.first .column {
+          display: table !important;
+        }
+
+        table[class="body"] table.columns td,
+        table[class="body"] table.column td {
+          width: 100% !important;
+        }
+
+        table[class="body"] .columns td.one,
+        table[class="body"] .column td.one { width: 8.333333% !important; }
+        table[class="body"] .columns td.two,
+        table[class="body"] .column td.two { width: 16.666666% !important; }
+        table[class="body"] .columns td.three,
+        table[class="body"] .column td.three { width: 25% !important; }
+        table[class="body"] .columns td.four,
+        table[class="body"] .column td.four { width: 33.333333% !important; }
+        table[class="body"] .columns td.five,
+        table[class="body"] .column td.five { width: 41.666666% !important; }
+        table[class="body"] .columns td.six,
+        table[class="body"] .column td.six { width: 50% !important; }
+        table[class="body"] .columns td.seven,
+        table[class="body"] .column td.seven { width: 58.333333% !important; }
+        table[class="body"] .columns td.eight,
+        table[class="body"] .column td.eight { width: 66.666666% !important; }
+        table[class="body"] .columns td.nine,
+        table[class="body"] .column td.nine { width: 75% !important; }
+        table[class="body"] .columns td.ten,
+        table[class="body"] .column td.ten { width: 83.333333% !important; }
+        table[class="body"] .columns td.eleven,
+        table[class="body"] .column td.eleven { width: 91.666666% !important; }
+        table[class="body"] .columns td.twelve,
+        table[class="body"] .column td.twelve { width: 100% !important; }
+
+        table[class="body"] td.offset-by-one,
+        table[class="body"] td.offset-by-two,
+        table[class="body"] td.offset-by-three,
+        table[class="body"] td.offset-by-four,
+        table[class="body"] td.offset-by-five,
+        table[class="body"] td.offset-by-six,
+        table[class="body"] td.offset-by-seven,
+        table[class="body"] td.offset-by-eight,
+        table[class="body"] td.offset-by-nine,
+        table[class="body"] td.offset-by-ten,
+        table[class="body"] td.offset-by-eleven {
+          padding-left: 0 !important;
+        }
+
+        table[class="body"] table.columns td.expander {
+          width: 1px !important;
+        }
+
+        table[class="body"] .right-text-pad,
+        table[class="body"] .text-pad-right {
+          padding-left: 10px !important;
+        }
+
+        table[class="body"] .left-text-pad,
+        table[class="body"] .text-pad-left {
+          padding-right: 10px !important;
+        }
+
+        table[class="body"] .hide-for-small,
+        table[class="body"] .show-for-desktop {
+          display: none !important;
+        }
+
+        table[class="body"] .show-for-small,
+        table[class="body"] .hide-for-desktop {
+          display : block !important;
+          width : auto !important;
+          overflow : visible !important;
+        }
+      }
+
+
+    </style>
+    <style type="text/css">
+
+      /* Your custom styles go here */
+      .header {
+        background: #1A1A1A;
+      }
+
+      .component {
+        background: #e6e6e6;
+
+      }
+
+      .image-left{
+        margin: 20px !important;
+      }
+
+    </style>
+  </head>
+  <body>
+    <table class="body">
+      <tr>
+        <td class="center" align="center" valign="top">
+          <center>
+
+          <!-- Email Content -->
+          <!--header-->
+          <table class="container">
+            <tr>
+              <td>
+                <table class="row header">
+                  <tr>
+                    <td class="wrapper last">
+                      <table class="three columns">
+                        <tr>
+                          <td>
+                            <a href="https://inmagik.com/it/">
+                              <img src="http://www.inmagik.com/static/img/inmagik_circle_border.png" class="logo-img" style="height:50px; width:50px; float:right; margin-right:4px;">
+                            </a>
+                          </td>
+                          <td class="expander"></td>
+                        </tr>
+                      </table>
+
+                    </td>
+                  </tr>
+                </td>
+               </tr>
+            </table>
+            <!--End of header-->
+
+            <!--image-->
+            <div class="twelve columns" style="height:300px">
+              <img height="300" src="data:image/png;base64,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">
+
+            </div>
+            <!--End of image-->
+
+            <!--component1-->
+            <table class="row component"> <!-- Styles go on the row -->
+              <tr>
+               <td class="center" align="center"> <!-- Center the container -->
+                 <center>
+                   <table class="container"> <!-- Container restricts the content width -->
+                     <tr>
+                       <td class="wrapper last"> <!-- Wrapper stays on the inner table -->
+                         <table class="twelve columns">
+                           <tr>
+                             <td style="text-align:center;" align="center">
+                                <h5 style="text-align:center;">CHE COS'E' DJANGO E PERCHE' USARLO?</h5>
+                                <br>
+                                <p style="text-align:center;">Django è un framework Python Web di alto livello che incoraggia il rapido sviluppo e il design pulito e pragmatico.</p>
+                                <br>
+                                <h5 style="text-align:center;">QUINDI, COS'E' DJANGO?</h5>
+                                <br>
+                                <p style="text-align:center;">Django è un framework Python, che rende molte cose molto più facili. Utilizzato in moltissimi servizi e siti di successo diffusi su scala mondiale.</p>
+                             </td>
+                            <td class="expander"></td>
+                           </tr>
+                         </table>
+                        </td>
+                      </tr>
+                     </table>
+                    </center>
+                   </td>
+                 </tr>
+              </table>
+              <!--End of component1-->
+
+              <!--block1-->
+              <table class="row component">
+                <tr>
+                  <td class="wrapper">
+                    <table class="three columns">
+                      <tr>
+                        <td>
+                          <img height="130" width="130" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT3P61zt6uWJ_MGI95vNTRLKt7wcWG_upiQD0eOaS-NhRiMy1al">
+                        </td>
+                        <td class="expander"></td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td class="wrapper last">
+                    <table class="nine columns">
+                      <tr>
+                        <td style="text-align:center;" align="center">
+                          <h5 style="text-align:center;">L'ORM DI DJANGO</h5>
+                          <br>
+                          <p>L'ORM è uno strumento molto potente che semplifica l'accesso a diversi sistemi di database mantenendo una base di codice unica. Supporta MySQL, PostgreSQL, Oracle e SQLite.</p>
+                        </td>
+                        <td class="expander"></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <!--End of block1-->
+
+              <!--block2-->
+              <table class="row component">
+                <tr>
+
+                  <td class="wrapper">
+                    <table class="nine columns">
+                      <tr>
+                        <td style="text-align:center;" align="center">
+                          <h5 style="text-align:center;">SICUREZZA RASSICURANTE</h5>
+                          <br>
+                          <p>Django prende sul serio il problema della sicurezza e aiuta gli sviluppatori a evitare molti errori comuni in questo campo, come SQL injection, cross-site scripting, cross-site request forgery e clickjacking. Il sistema di autenticazione utente di django fornisce un modo sicuro per gestire gli account utente e le password.</p>
+                        </td>
+                        <td class="expander"></td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td class="wrapper">
+                    <table class="three columns">
+                      <tr>
+                        <td>
+                          <img height="130" width="130"src="http://negativespace.co/wp-content/uploads/2015/12/00014-259x172@2x.jpg">
+                        </td>
+                        <td class="expander"></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <!--End of block2-->
+
+              <!--block3-->
+              <table class="row component">
+                <tr>
+                  <td class="wrapper">
+                    <table class="three columns">
+                      <tr>
+                        <td>
+                          <img height="130" width="130"src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRZRIRWKYRVH8xoqGPg6IwPdU2jZ_z4RyB2omElcqHKezx33ca1">
+                        </td>
+                        <td class="expander"></td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td class="wrapper last">
+                    <table class="nine columns">
+                      <tr>
+                        <td style="text-align:center;" align="center">
+                          <h5 style="text-align:center;">ADMIN</h5>
+                          <br>
+                          <p>Django permette di generare automaticamente una interfaccia di amministrazione del database che può essere utilizzata come backend per la gestione dei contenuti del vostro sito.</p>
+                        </td>
+                        <td class="expander"></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <!--End of block3-->
+
+              <!--block4-->
+              <table class="row component">
+                <tr>
+
+                  <td class="wrapper">
+                    <table class="nine columns">
+                      <tr>
+                        <td style="text-align:center;" align="center">
+                          <h5 style="text-align:center;">SICUREZZA RASSICURANTE</h5>
+                          <br>
+                          <p>Django prende sul serio il problema della sicurezza e aiuta gli sviluppatori a evitare molti errori comuni in questo campo, come SQL injection, cross-site scripting, cross-site request forgery e clickjacking. Il sistema di autenticazione utente di django fornisce un modo sicuro per gestire gli account utente e le password.</p>
+                        </td>
+                        <td class="expander"></td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td class="wrapper">
+                    <table class="three columns">
+                      <tr>
+                        <td>
+                          <img height="130" width="130"src="https://inmagik.github.io/mail-marketing/email-responsive.inmagik-django/img/keyboard.jpg">
+                        </td>
+                        <td class="expander"></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <!--End of block4-->
+
+
+
+          </center>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
